@@ -1,0 +1,126 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.cookbook'|trans({'%id%': recipe.id|default('')}) }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ recipe.title }}</h1>
+    {% if recipe is defined and recipe|length %}
+        <dl class="dl-horizontal">
+            <dt>{{ 'label.id'|trans }}</dt>
+            <dd>{{ recipe.id }}</dd>
+            <dt>{{ 'label.createdAt'|trans }}</dt>
+            <dd>{{ recipe.createdAt|date('Y-m-d') }}</dd>
+            <dt>{{ 'label.updatedAt'|trans }}</dt>
+            <dd>{{ recipe.updatedAt|date('Y-m-d') }}</dd>
+            <dt>{{ 'label.title'|trans }}</dt>
+            <dd>{{  recipe.title }}</dd>
+            <dt>{{ 'label.content'|trans }}</dt>
+            <dd>{{ recipe.content }}</dd>
+            <dt>{{ 'label.category'|trans }}</dt>
+            <dd>{{  recipe.category.title }}</dd>
+            <dt>{{ 'label.tags' | trans }}</dt>
+            {% if recipe.tags is not empty %}
+                <ul>
+                    {% for tag in recipe.tags %}
+                        <li>{{ tag.title }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>{{ 'message.no_tags'|trans }}</p>
+            {% endif %}
+            <dt>{{ 'label.author'|trans }}</dt>
+            <dd>{{ recipe.author.email }}</dd>
+            <dt>{{ 'label.rating'|trans }}</dt>
+            {% if averageRating %}
+                <p>{{ 'title.average_rating'|trans }}
+                    {% for i in 1..5 %}
+                        {% if i <= averageRating %}
+                            <span style="color: gold;">★</span>
+                        {% else %}
+                            <span style="color: lightgray;">★</span>
+                        {% endif %}
+                    {% endfor %}
+                    ({{ averageRating }}/5)
+                </p>
+            {% else %}
+                <p>{{ 'message.no_ratings'|trans }}</p>
+            {% endif %}
+
+            <div>
+                {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                    {# Check if user already rated #}
+                    {% set userRated = null %}
+                    {% for rating in recipe.ratings %}
+                        {% if rating.user == app.user %}
+                            {% set userRated = rating.rating %}
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if not userRated %}
+                        <p>{{ 'label.rate_recipe'|trans }}</p>
+                    {% endif %}
+
+                    {% if userRated %}
+                        <div>
+                            <p>{{ 'message.already_rated'|trans}} {{ userRated }} <span style="color: gold;">★</span></p>
+                        </div>
+                    {% else %}
+                        {% for i in 1..5 %}
+                            <form action="{{ path('rate_recipe') }}" method="POST" style="display: inline;">
+                                <input type="hidden" name="recipe_id" value="{{ recipe.id }}">
+                                <input type="hidden" name="rating" value="{{ i }}">
+                                <button type="submit" title="Rate {{ i }} star{{ i > 1 ? 's' : '' }}" style="font-size: 1.5rem; border:none; background:none; cursor:pointer;">
+                                    <span style="color: gold;">★</span> <span style="color: black;">{{ i }}</span>
+                                </button>
+                            </form>
+                        {% endfor %}
+                    {% endif %}
+                {% else %}
+                    <div class="alert alert-warning mt-3">
+                        <a href="{{ path('app_login') }}">{{ 'message.login'|trans }}</a> {{ 'message.login_to_rate'|trans }}
+                    </div>
+                {% endif %}
+            </div>
+
+
+            <dt>{{ 'label.comment'|trans }}</dt>
+            {% for comment in recipe.comments %}
+                <div class="mb-2 p-2 border rounded">
+                    <strong>{{ comment.author.email }}</strong>
+                    <p>{{ comment.content }}</p>
+                    <small><em>{{ comment.createdAt|date('Y-m-d H:i') }}</em></small>
+                </div>
+                {% if is_granted('COMMENT_DELETE', comment) %}
+                    <form method="post" action="{{ path('comment_delete', {id: comment.id}) }}" onsubmit="return confirm({{ 'message.confirm_delete_comment'|trans }});">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete-comment-' ~ comment.id) }}">
+                        <button class="btn btn-sm btn-danger">{{ 'action.delete'|trans }}</button>
+                    </form>
+                {% endif %}
+            {% else %}
+                <p>{{ 'message.no_comments'|trans }}</p>
+            {% endfor %}
+
+            {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                {{ form_start(commentForm) }}
+                {{ form_row(commentForm.content, { 'label': 'label.comment_content'|trans }) }}
+                <button class="btn btn-primary">{{ 'action.add_comment'|trans }}</button>
+                {{ form_end(commentForm) }}
+            {% else %}
+                <div class="alert alert-warning mt-3">
+                    <a href="{{ path('app_login') }}">{{ 'message.login'|trans }}</a> {{ 'message.login_to_comment'|trans }}
+                </div>
+            {% endif %}
+        </dl>
+        <p>
+            <a href="{{ url('recipe_index') }}" title="{{ 'action.back_to_list'|trans }}">
+                {{ 'action.back_to_list'|trans }}
+            </a>
+        </p>
+    {% else %}
+        <p>
+            {{ 'message.record_not_found'|trans }}
+        </p>
+    {% endif %}
+{% endblock %}

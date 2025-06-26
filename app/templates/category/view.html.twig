@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.cookbook'|trans }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ category.title }}</h1>
+    {% if category is defined %}
+        <dl class="dl-horizontal">
+            <dt>{{ 'label.id'|trans }}</dt>
+            <dd>{{ category.id }}</dd>
+            <dt>{{ 'label.createdAt'|trans }}</dt>
+            <dd>{{ category.createdAt|date('Y-m-d') }}</dd>
+            <dt>{{ 'label.updatedAt'|trans }}</dt>
+            <dd>{{ category.updatedAt|date('Y-m-d') }}</dd>
+            <dt>{{ 'label.title'|trans }}</dt>
+            <dd>{{  category.title }}</dd>
+            <dt>{{ 'label.recipes_in_category'|trans }}</dt>
+            <dd><a href="{{ path('category_recipes', {id: category.id}) }}" class="btn btn-sm btn-outline-info">
+                {{ 'action.view'|trans }}
+            </a>
+            </dd>
+        </dl>
+        <p>
+            <a href="{{ url('category_index') }}" title="{{ 'action.back_to_list'|trans }}">
+                {{ 'action.back_to_list'|trans }}
+            </a>
+        </p>
+    {% else %}
+        <p>
+            {{ 'message.record_not_found'|trans }}
+        </p>
+    {% endif %}
+{% endblock %}

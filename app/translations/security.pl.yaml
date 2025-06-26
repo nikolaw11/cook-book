@@ -1,0 +1,4 @@
+action.login: 'Zaloguj się'
+action.logout: 'Wyloguj się'
+security:
+  Invalid credentials.': 'Nieprawidłowe dane logowania.'

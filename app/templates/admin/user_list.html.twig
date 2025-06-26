@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.cookbook'|trans }}
+{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1>{{ 'title.users'|trans }}</h1>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>{{ 'label.user_email'|trans }}</th>
+                <th>{{ 'label.user_role'|trans }}</th>
+                <th>{{ 'label.actions'|trans }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% set roleLabels = {
+                'ROLE_ADMIN': 'role.admin'|trans,
+                'ROLE_USER': 'role.user'|trans
+            } %}
+
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.email }}</td>
+                    <td>
+                        {% for role in user.roles %}
+                            {{ roleLabels[role]|default(role) }}{% if not loop.last %}, {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td>
+                        {% if 'ROLE_ADMIN' not in user.roles %}
+                            <a href="{{ path('admin_edit_user_password', {id: user.id}) }}"
+                               class="btn btn-sm btn-primary">
+                                {{ 'label.change_password'|trans }}
+                            </a>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+            <p>
+                <a href="{{ url('category_index') }}" title="{{ 'action.back_to_list'|trans }}">
+                    {{ 'action.back_to_list'|trans }}
+                </a>
+            </p>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

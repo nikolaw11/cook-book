@@ -1,0 +1,95 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.cookbook'|trans }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'title.recipes'|trans }}</h1>
+
+    {% if app.user %}
+        <p>{{ 'title.hello'|trans }} {{ app.user.email }}</p>
+    {% else %}
+        <p>{{ 'title.not_logged_in'|trans }}</p>
+    {% endif %}
+
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <div class="mb-3 text-end">
+            <a href="{{ path('recipe_create') }}" class="btn btn-success">
+                {{ 'action.add_recipe'|trans }}
+            </a>
+        </div>
+    {% endif %}
+
+    <form method="get" action="{{ path('recipe_index') }}" class="mb-3">
+        <label for="tag">{{ 'title.filter'|trans }}</label>
+        <select id="tag" name="tag" onchange="this.form.submit()" class="form-select w-auto d-inline-block ms-2">
+            <option value="">{{ 'title.all_tags'|trans }}</option>
+            {% for tag in tags %}
+                <option value="{{ tag.id }}" {% if tag.id == selectedTag %}selected{% endif %}>{{ tag.title }}</option>
+            {% endfor %}
+        </select>
+    </form>
+
+    {% if pagination is defined and pagination.items|length %}
+
+        <div class="navigation text-center">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>{{ knp_pagination_sortable(pagination, 'label.id'|trans, 'recipe.id') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.createdAt'|trans, 'recipe.createdAt') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.updatedAt'|trans, 'recipe.updatedAt') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.title'|trans, 'recipe.title') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.rating'|trans, 'recipe.rating') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.category'|trans, 'category.title') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.author'|trans, 'recipe.author.email') }}</th>
+                <th>{{ 'label.actions'|trans }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for row in pagination.items %}
+                {% set recipe = row[0] %}
+                <tr>
+                    <td>{{ recipe.id }}</td>
+                    <td>{{ recipe.createdAt|date('Y-m-d') }}</td>
+                    <td>{{ recipe.updatedAt|date('Y-m-d') }}</td>
+                    <td>{{ recipe.title }}</td>
+                    <td>{{ row.avgRating ? row.avgRating|number_format(2) : 'No ratings' }}</td>
+                    <td>{{ recipe.category.title }}</td>
+                    <td>{{ recipe.author.email }}</td>
+                    <td>
+                            <a href="{{ path('recipe_view', {id: recipe.id}) }}" class="btn btn-sm btn-outline-primary">
+                                {{ 'action.view'|trans }}
+                            </a>
+                        {% if is_granted('RECIPE_EDIT', recipe) %}
+                            <a href="{{ path('recipe_edit', {id: recipe.id}) }}" class="btn btn-sm btn-outline-secondary">
+                                {{ 'action.edit'|trans }}
+                            </a>
+                        {% endif %}
+                        {% if is_granted('RECIPE_DELETE', recipe) %}
+                            <a href="{{ path('recipe_delete', {id: recipe.id}) }}" class="btn btn-sm btn-outline-danger">
+                                {{ 'action.delete'|trans }}
+                            </a>
+                        {% endif %}
+                    </td>
+
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="navigation text-center">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+
+    {% else %}
+        {% include 'default/_single_alert_message.html.twig' with {
+            type: 'warning',
+            message: 'message.empty_list'|trans
+        } %}
+    {% endif %}
+{% endblock %}

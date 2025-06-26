@@ -1,0 +1,288 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="file.ext">
+    <body>
+      <trans-unit id="title.cookbook">
+        <source>title.cookbook</source>
+        <target>Książka kucharska</target>
+      </trans-unit>
+      <trans-unit id="title.tags">
+        <source>title.tags</source>
+        <target>Tagi</target>
+      </trans-unit>
+
+    <!-- Recipe -->
+      <trans-unit id="title.recipes">
+        <source>title.recipes</source>
+        <target>Przepisy</target>
+      </trans-unit>
+      <trans-unit id="action.add_recipe">
+        <source>action.add_recipe</source>
+        <target>Dodaj przepis</target>
+      </trans-unit>
+      <trans-unit id="title.hello">
+        <source>title.hello</source>
+        <target>Hej, </target>
+      </trans-unit>
+      <trans-unit id="title.not_logged_in">
+        <source>title.not_logged_in</source>
+        <target>Nie zalogowano</target>
+      </trans-unit>
+      <trans-unit id="title.filter">
+        <source>title.filter</source>
+        <target>Filtruj po tagach:</target>
+      </trans-unit>
+      <trans-unit id="title.all_tags">
+        <source>title.all_tags</source>
+        <target>-- Wszystkie --</target>
+      </trans-unit>
+
+      <!-- Recipe view-->
+        <trans-unit id="label.rate_recipe">
+          <source>label.rate_recipe</source>
+          <target>Oceń ten przepis:</target>
+        </trans-unit>
+        <trans-unit id="message.already_rated">
+          <source>message.already_rated</source>
+          <target>Już oceniłeś/aś ten przepis: </target>
+        </trans-unit>
+        <trans-unit id="message.login">
+          <source>message.login</source>
+          <target>Zaloguj się</target>
+        </trans-unit>
+        <trans-unit id="message.login_to_rate">
+          <source>message.login_to_rate</source>
+          <target>, żeby ocenić przepis.</target>
+        </trans-unit>
+        <trans-unit id="message.confirm_delete_comment">
+          <source>message.confirm_delete_comment</source>
+          <target>Jesteś pewny/a, że chcesz usunąć ten komentarz?</target>
+        </trans-unit>
+        <trans-unit id="message.no_comments">
+          <source>message.no_comments</source>
+          <target>Brak komentarzy.</target>
+        </trans-unit>
+        <trans-unit id="action.add_comment">
+          <source>action.add_comment</source>
+          <target>Dodaj komentarz</target>
+        </trans-unit>
+        <trans-unit id="message.login_to_comment">
+          <source>message.login_to_comment</source>
+          <target>, żeby dodać komentarz.</target>
+        </trans-unit>
+        <trans-unit id="title.average_rating">
+          <source>title.average_rating</source>
+          <target>Średnia ocena: </target>
+        </trans-unit>
+        <trans-unit id="label.comment_content">
+          <source>label.comment_content</source>
+          <target>Komentarz</target>
+        </trans-unit>
+        <trans-unit id="title.edit">
+          <source>title.edit</source>
+          <target>Edytuj</target>
+        </trans-unit>
+        <trans-unit id="title.choose_category">
+          <source>title.choose_category</source>
+          <target>Wybierz kategorię</target>
+        </trans-unit>
+        <trans-unit id="title.delete">
+          <source>title.delete</source>
+          <target>Usuń</target>
+        </trans-unit>
+        <trans-unit id="message.confirm_delete_recipe">
+          <source>message.confirm_delete_recipe</source>
+          <target>Jesteś pewny/a, że chcesz usunąć ten przepis?</target>
+        </trans-unit>
+        <trans-unit id="title.create">
+          <source>title.create</source>
+          <target>Stwórz</target>
+        </trans-unit>
+      <trans-unit id="message.no_tags">
+        <source>message.no_tags</source>
+        <target>Ten przepis nie posiada tagów.</target>
+      </trans-unit>
+      <trans-unit id="message.no_ratings">
+        <source>message.no_ratings</source>
+        <target>Brak ocen.</target>
+      </trans-unit>
+
+      <!-- Category -->
+      <trans-unit id="title.categories">
+        <source>title.categories</source>
+        <target>Kategorie</target>
+      </trans-unit>
+      <trans-unit id="action.add_category">
+         <source>action.add_category</source>
+         <target>Dodaj kategorię</target>
+      </trans-unit>
+      <trans-unit id="label.recipes_in_category">
+         <source>label.recipes_in_category</source>
+         <target>Przepisy w tej kategorii</target>
+      </trans-unit>
+      <trans-unit id="message.no_recipes_in_category">
+         <source>message.no_recipes_in_category</source>
+         <target>Brak przepisów w tej kategorii.</target>
+      </trans-unit>
+
+    <!-- Admin and profiles -->
+    <trans-unit id="label.change_password">
+      <source>label.change_password</source>
+      <target>Zmiana hasła</target>
+    </trans-unit>
+    <trans-unit id="title.users">
+      <source>title.users</source>
+      <target>Użytkownicy</target>
+    </trans-unit>
+    <trans-unit id="label.user_email">
+      <source>label.user_email</source>
+      <target>Email</target>
+    </trans-unit>
+    <trans-unit id="label.user_role">
+      <source>label.user_role</source>
+      <target>Rola</target>
+    </trans-unit>
+    <trans-unit id="title.profile">
+      <source>title.profile</source>
+      <target>Mój profil</target>
+    </trans-unit>
+
+    <!-- Register, security and base buttons -->
+    <trans-unit id="title.register">
+      <source>title.register</source>
+      <target>Zarejestruj się</target>
+    </trans-unit>
+    <trans-unit id="label.password">
+      <source>label.password</source>
+      <target>Hasło</target>
+    </trans-unit>
+    <trans-unit id="action.register">
+      <source>action.register</source>
+      <target>Zarejestruj</target>
+    </trans-unit>
+    <trans-unit id="action.login">
+      <source>action.login</source>
+      <target>Zaloguj</target>
+    </trans-unit>
+    <trans-unit id="action.profile">
+      <source>action.profile</source>
+      <target>Mój profil</target>
+    </trans-unit>
+    <trans-unit id="action.logout">
+      <source>action.logout</source>
+      <target>Wyloguj</target>
+    </trans-unit>
+    <trans-unit id="action.admin">
+      <source>action.admin</source>
+      <target>Panel administracyjny</target>
+    </trans-unit>
+
+    <!-- Table columns -->
+      <trans-unit id="label.actions">
+        <source>label.actions</source>
+        <target>Akcje</target>
+      </trans-unit>
+      <trans-unit id="label.id">
+        <source>label.id</source>
+        <target>Numer</target>
+      </trans-unit>
+      <trans-unit id="label.title">
+        <source>label.title</source>
+        <target>Tytuł</target>
+      </trans-unit>
+      <trans-unit id="label.createdAt">
+        <source>label.createdAt</source>
+        <target>Utworzono</target>
+       </trans-unit>
+       <trans-unit id="label.updatedAt">
+        <source>label.updatedAt</source>
+        <target>Edytowano</target>
+       </trans-unit>
+      <trans-unit id="label.content">
+        <source>label.content</source>
+        <target>Treść</target>
+      </trans-unit>
+      <trans-unit id="label.rating">
+        <source>label.rating</source>
+        <target>Ocena</target>
+      </trans-unit>
+      <trans-unit id="label.category">
+        <source>label.category</source>
+        <target>Kategoria</target>
+      </trans-unit>
+      <trans-unit id="label.author">
+        <source>label.author</source>
+        <target>Autor</target>
+      </trans-unit>
+      <trans-unit id="label.tags">
+        <source>label.tags</source>
+        <target>Tagi</target>
+      </trans-unit>
+      <trans-unit id="label.comment">
+        <source>label.comment</source>
+        <target>Komentarze</target>
+      </trans-unit>
+
+      <!-- Actions -->
+      <trans-unit id="action.view">
+        <source>action.view</source>
+        <target>Wyświetl</target>
+      </trans-unit>
+      <trans-unit id="action.edit">
+        <source>action.edit</source>
+        <target>Edytuj</target>
+      </trans-unit>
+      <trans-unit id="action.delete">
+        <source>action.delete</source>
+        <target>Usuń</target>
+      </trans-unit>
+      <trans-unit id="action.save">
+        <source>action.save</source>
+        <target>Zapisz</target>
+      </trans-unit>
+      <trans-unit id="action.back_to_list">
+        <source>action.back_to_list</source>
+        <target>Powrót</target>
+      </trans-unit>
+      <trans-unit id="action.add_tag">
+        <source>action.add_tag</source>
+        <target>Dodaj tag</target>
+      </trans-unit>
+
+      <trans-unit id="message.empty_list">
+        <source>message.empty_list</source>
+        <target>Lista jest pusta.</target>
+      </trans-unit>
+      <trans-unit id="message.record_not_found">
+        <source>message.record_not_found</source>
+        <target>Nie znaleziono rekordu.</target>
+      </trans-unit>
+      <trans-unit id="message.edited_successfully">
+        <source>message.edited_successfully</source>
+        <target>Edytowano pomyślnie</target>
+      </trans-unit>
+      <trans-unit id="message.created_successfully">
+        <source>message.created_successfully</source>
+        <target>Utworzono pomyślnie</target>
+      </trans-unit>
+      <trans-unit id="title.record_list">
+        <source>title.record_list</source>
+        <target>Lista rekordów.</target>
+      </trans-unit>
+      <trans-unit id="title.record_view">
+        <source>title.record_view</source>
+        <target>Widok rekordu #%id%</target>
+      </trans-unit>
+
+      <!-- Roles -->
+      <trans-unit id="role.admin">
+        <source>role.admin</source>
+        <target>Administrator</target>
+      </trans-unit>
+      <trans-unit id="role.user">
+        <source>role.user</source>
+        <target>Użytkownik</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

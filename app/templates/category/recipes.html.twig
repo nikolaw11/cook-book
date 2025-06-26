@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.cookbook'|trans }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'label.recipes_in_category'|trans }}: {{ category.title }}</h1>
+
+    {% if category.recipes|length > 0 %}
+        <ul class="list-group">
+            {% for recipe in category.recipes %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    {{ recipe.title }}
+                    <a href="{{ path('recipe_view', {id: recipe.id}) }}" class="btn btn-sm btn-outline-primary">{{ 'action.view'|trans }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <div class="alert alert-info mt-3">
+            Brak przepisów w tej kategorii.
+        </div>
+    {% endif %}
+    <p>
+        <a href="{{ url('category_index') }}" title="{{ 'action.back_to_list'|trans }}">
+            {{ 'action.back_to_list'|trans }}
+        </a>
+    </p>
+{% endblock %}
