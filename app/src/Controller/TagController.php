@@ -32,7 +32,7 @@ class TagController extends AbstractController
     {
     }
 
-     /**
+    /**
      * @param int $page Page
      *
      * @return Response HTTP response

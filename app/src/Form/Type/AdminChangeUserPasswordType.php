@@ -32,12 +32,12 @@ class AdminChangeUserPasswordType extends AbstractType
                 RepeatedType::class,
                 [
                     'type' => PasswordType::class,
-                    'first_options' => ['label' => 'Nowe hasło'],
-                    'second_options' => ['label' => 'Powtórz hasło'],
+                    'first_options' => ['label' => 'label.new_password'],
+                    'second_options' => ['label' => 'label.repeat_password'],
                     'mapped' => false,
                     'constraints' => [
-                        new NotBlank(['message' => 'Wprowadź hasło']),
-                        new Length(['min' => 6, 'minMessage' => 'Hasło musi mieć przynajmniej {{ limit }} znaków']),
+                        new NotBlank(['message' => 'message.type_password']),
+                        new Length(['min' => 6, 'minMessage' => 'message.password_limit']),
                     ],
                 ]
             );

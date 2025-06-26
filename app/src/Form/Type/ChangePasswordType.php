@@ -34,12 +34,12 @@ class ChangePasswordType extends AbstractType
                 'currentPassword',
                 PasswordType::class,
                 [
-                    'label' => 'Obecne hasło',
+                    'label' => 'label.current_password',
                     'mapped' => false,
-                    'attr' => ['autocomplete' => 'current-password'],
+                    'attr' => ['autocomplete' => 'message.current-password'],
                     'constraints' => [
-                        new NotBlank(['message' => 'Wprowadź obecne hasło']),
-                        new UserPassword(['message' => 'Obecne hasło jest nieprawidłowe']),
+                        new NotBlank(['message' => 'message.current_password']),
+                        new UserPassword(['message' => 'message.current_password_invalid']),
                     ],
                 ]
             )
@@ -47,15 +47,15 @@ class ChangePasswordType extends AbstractType
                 'plainPassword',
                 PasswordType::class,
                 [
-                    'label' => 'Nowe hasło',
+                    'label' => 'label.new_password',
                     'mapped' => false,
-                    'attr' => ['autocomplete' => 'new-password'],
+                    'attr' => ['autocomplete' => 'message.new-password'],
                     'constraints' => [
-                        new NotBlank(['message' => 'Wprowadź nowe hasło']),
+                        new NotBlank(['message' => 'message.new_password']),
                         new Length(
                             [
                                 'min' => 6,
-                                'minMessage' => 'Hasło musi mieć co najmniej {{ limit }} znaków',
+                                'minMessage' => 'message.password_limit',
                                 'max' => 4096,
                             ]
                         ),

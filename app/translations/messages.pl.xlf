@@ -222,6 +222,18 @@
         <source>label.comment</source>
         <target>Komentarze</target>
       </trans-unit>
+      <trans-unit id="label.current_password">
+        <source>label.current_password</source>
+        <target>Obecne hasło</target>
+      </trans-unit>
+      <trans-unit id="label.new_password">
+        <source>label.new_password</source>
+        <target>Nowe hasło</target>
+      </trans-unit>
+      <trans-unit id="label.repeat_password">
+        <source>label.repeat_password</source>
+        <target>Powtórz hasło</target>
+      </trans-unit>
 
       <!-- Actions -->
       <trans-unit id="action.view">
@@ -272,6 +284,18 @@
       <trans-unit id="title.record_view">
         <source>title.record_view</source>
         <target>Widok rekordu #%id%</target>
+      </trans-unit>
+      <trans-unit id="message.category_contains_tasks">
+        <source>message.category_contains_tasks</source>
+        <target>Kategoria zawiera zadania</target>
+      </trans-unit>
+      <trans-unit id="message.deleted_successfully">
+        <source>message.deleted_successfully</source>
+        <target>Usunięto pomyślnie</target>
+      </trans-unit>
+      <trans-unit id="message.form_error">
+        <source>message.form_error</source>
+        <target>Błąd formularza</target>
       </trans-unit>
 
       <!-- Roles -->

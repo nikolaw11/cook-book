@@ -82,8 +82,6 @@ class Comment
      * Setter for content.
      *
      * @param string $content Content
-     *
-     * @return static
      */
     public function setContent(string $content): static
     {
@@ -106,8 +104,6 @@ class Comment
      * Setter for created at.
      *
      * @param \DateTimeImmutable $createdAt Created at
-     *
-     * @return static
      */
     public function setCreatedAt(\DateTimeImmutable $createdAt): static
     {
@@ -118,8 +114,6 @@ class Comment
 
     /**
      * Get the author.
-     *
-     * @return User|null
      */
     public function getAuthor(): ?User
     {
@@ -130,8 +124,6 @@ class Comment
      * Set the author.
      *
      * @param User|null $author Author
-     *
-     * @return static
      */
     public function setAuthor(?User $author): static
     {
@@ -154,8 +146,6 @@ class Comment
      * Setter for recipe.
      *
      * @param Recipe|null $recipe Recipe
-     *
-     * @return static
      */
     public function setRecipe(?Recipe $recipe): static
     {

@@ -36,8 +36,6 @@ class TagService implements TagServiceInterface
      * Get paginated list.
      *
      * @param int $page Page
-     *
-     * @return PaginationInterface
      */
     public function getPaginatedList(int $page): PaginationInterface
     {
@@ -53,8 +51,6 @@ class TagService implements TagServiceInterface
      * Save entity.
      *
      * @param Tag $tag Tag entity
-     *
-     * @return void
      */
     public function save(Tag $tag): void
     {
@@ -65,8 +61,6 @@ class TagService implements TagServiceInterface
      * Delete action.
      *
      * @param Tag $tag Tag entity
-     *
-     * @return void
      */
     public function delete(Tag $tag): void
     {

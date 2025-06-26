@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="validators.en">
+    <body>
+        <trans-unit id="message.current_password">
+          <source>message.current_password</source>
+          <target>Current password</target>
+        </trans-unit>
+        <trans-unit id="message.current_password_invalid">
+          <source>message.current_password_invalid</source>
+          <target>Current password is invalid</target>
+        </trans-unit>
+        <trans-unit id="message.new_password">
+          <source>message.new_password</source>
+          <target>New password</target>
+        </trans-unit>
+        <trans-unit id="message.password_limit">
+          <source>message.password_limit</source>
+          <target>Password must contain at least {{ limit }} characters.</target>
+        </trans-unit>
+        <trans-unit id="message.type_password">
+          <source>message.type_password</source>
+          <target>Type in password</target>
+        </trans-unit>
+    </body>
+  </file>
+</xliff>

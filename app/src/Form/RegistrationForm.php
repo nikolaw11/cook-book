@@ -38,14 +38,13 @@ class RegistrationForm extends AbstractType
                     'constraints' => [
                         new NotBlank(
                             [
-                                'message' => 'Please enter a password',
+                                'message' => 'message.type_password',
                             ]
                         ),
                         new Length(
                             [
                                 'min' => 6,
-                                'minMessage' => 'Your password should be at least {{ limit }} characters',
-                                // max length allowed by Symfony for security reasons
+                                'minMessage' => 'message.password_limit',
                                 'max' => 4096,
                             ]
                         ),
