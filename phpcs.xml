@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<ruleset name="Custom Symfony Ruleset">
+    <rule ref="PSR12"/>
+
+    <!-- Exclude the deprecated sniff -->
+    <exclude name="Generic.Functions.CallTimePassByReference"/>
+</ruleset>

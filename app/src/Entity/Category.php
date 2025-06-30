@@ -166,7 +166,7 @@ class Category
     /**
      * Get the author value.
      *
-     * @return string|null the slug or null if not set
+     * @return string|null
      */
     public function getAuthor(): ?User
     {
@@ -178,7 +178,7 @@ class Category
      *
      * @param User|null $author Author
      *
-     * @return self
+     * @return static
      */
     public function setAuthor(?User $author): static
     {

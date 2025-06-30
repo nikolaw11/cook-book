@@ -46,6 +46,7 @@ security:
         - { path: ^/app, roles: PUBLIC_ACCESS }
         - { path: ^/category, roles: PUBLIC_ACCESS }
         - { path: ^/recipe, roles: PUBLIC_ACCESS }
+        - { path: ^/rate, roles: IS_AUTHENTICATED_FULLY }
         - { path: ^/(en|pl)/, roles: PUBLIC_ACCESS }
         - { path: ^/$, roles: PUBLIC_ACCESS }
         - { path: ^/, roles: ROLE_USER }

@@ -12,7 +12,6 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Class RatingController.
@@ -32,9 +31,6 @@ class RatingController extends AbstractController
     public function rate(Request $request, EntityManagerInterface $em, RatingServiceInterface $ratingService): Response
     {
         $user = $this->getUser();
-        if (!$user instanceof \Symfony\Component\Security\Core\User\UserInterface) {
-            throw $this->createAccessDeniedException('You must be logged in to rate.');
-        }
 
         $recipeId = $request->request->get('recipe_id');
         $ratingValue = (int) $request->request->get('rating');

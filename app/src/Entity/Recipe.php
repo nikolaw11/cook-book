@@ -211,9 +211,9 @@ class Recipe
     /**
      * Set the slug value.
      *
-     * @param string $slug the slug to set
+     * @param string $slug
      *
-     * @return static returns the current instance for method chaining
+     * @return static
      */
     public function setSlug(string $slug): static
     {
@@ -268,6 +268,8 @@ class Recipe
      * Set the author.
      *
      * @param User|null $author Author
+     *
+     * @return self
      */
     public function setAuthor(?User $author): self
     {
@@ -365,6 +367,8 @@ class Recipe
 
     /**
      * Getter for content.
+     *
+     * @return string|null
      */
     public function getContent(): ?string
     {
@@ -375,6 +379,8 @@ class Recipe
      * Setter for content.
      *
      * @param string $content Content
+     *
+     * @return static
      */
     public function setContent(string $content): static
     {

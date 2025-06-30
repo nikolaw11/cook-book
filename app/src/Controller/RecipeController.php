@@ -141,7 +141,9 @@ class RecipeController extends AbstractController
     )]
     public function create(Request $request): Response
     {
-        /**** @var User $user */
+        /****
+ * @var User $user
+*/
         $user = $this->getUser();
         $recipe = new Recipe();
         $recipe->setAuthor($user);
@@ -266,6 +268,8 @@ class RecipeController extends AbstractController
      *
      * @param Recipe                 $recipe Recipe
      * @param EntityManagerInterface $em     Entity Manager
+     *
+     * @return Response HTTP response
      */
     #[Route('/recipe/{id}/delete-confirmed', name: 'recipe_delete_confirmed', methods: ['GET'])]
     public function deleteConfirmed(Recipe $recipe, EntityManagerInterface $em): Response

@@ -50,7 +50,6 @@
 
             <div>
                 {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
-                    {# Check if user already rated #}
                     {% set userRated = null %}
                     {% for rating in recipe.ratings %}
                         {% if rating.user == app.user %}

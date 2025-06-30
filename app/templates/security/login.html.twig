@@ -15,13 +15,6 @@
                 </div>
             {% endif %}
 
-            {#  {% if app.user %}
-                <div class="alert alert-info">
-                    Zalogowano jako {{ app.user.userIdentifier }}.
-                    <a href="{{ path('app_logout') }}">Wyloguj się</a>
-                </div>
-            {% endif %} #}
-
             <form method="post" action="{{ path('app_login') }}">
                 <div class="mb-3">
                     <label for="username" class="form-label">{{ 'label.user_email'|trans }}</label>

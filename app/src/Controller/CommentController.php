@@ -13,7 +13,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
-use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Class CommentController.
@@ -42,7 +41,7 @@ class CommentController extends AbstractController
     #[IsGranted('COMMENT_DELETE', subject: 'comment')]
     public function delete(Request $request, Comment $comment, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete-comment-'.$comment->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete-comment-' . $comment->getId(), $request->request->get('_token'))) {
             $this->commentService->delete($comment);
         }
 

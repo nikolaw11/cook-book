@@ -92,7 +92,7 @@ class CategoryService implements CategoryServiceInterface
             $result = $this->recipeRepository->countByCategory($category);
 
             return $result <= 0;
-        } catch (NoResultException|NonUniqueResultException) {
+        } catch (NoResultException | NonUniqueResultException) {
             return false;
         }
     }

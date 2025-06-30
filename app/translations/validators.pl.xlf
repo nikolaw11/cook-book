@@ -22,6 +22,14 @@
           <source>message.type_password</source>
           <target>Wprowadź hasło</target>
         </trans-unit>
+        <trans-unit id="message.email_exists">
+          <source>message.email_exists</source>
+          <target>Już istnieje konto z tym mailem</target>
+        </trans-unit>
+        <trans-unit id="message.email_not_blank">
+          <source>message.email_not_blank</source>
+          <target>Email nie może być pusty</target>
+        </trans-unit>
     </body>
   </file>
 </xliff>

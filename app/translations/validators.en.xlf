@@ -22,6 +22,14 @@
           <source>message.type_password</source>
           <target>Type in password</target>
         </trans-unit>
+        <trans-unit id="message.email_exists">
+          <source>message.email_exists</source>
+          <target>There is already an account with this email</target>
+        </trans-unit>
+        <trans-unit id="message.email_not_blank">
+          <source>message.email_not_blank</source>
+          <target>Email can't be blank</target>
+        </trans-unit>
     </body>
   </file>
 </xliff>

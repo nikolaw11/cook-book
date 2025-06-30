@@ -88,7 +88,9 @@ class CategoryController extends AbstractController
     )]
     public function create(Request $request): Response
     {
-        /**** @var User $user */
+        /****
+ * @var User $user
+*/
         $user = $this->getUser();
         $category = new Category();
         $form = $this->createForm(CategoryType::class, $category);

@@ -34,6 +34,8 @@ class RatingRepository extends ServiceEntityRepository
      * Get average rating.
      *
      * @param Recipe $recipe Recipe
+     *
+     * @return float
      */
     public function getAverageRating(Recipe $recipe): float
     {
