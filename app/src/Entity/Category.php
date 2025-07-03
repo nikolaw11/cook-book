@@ -177,8 +177,6 @@ class Category
      * Setter for author.
      *
      * @param User|null $author Author
-     *
-     * @return static
      */
     public function setAuthor(?User $author): static
     {

@@ -41,7 +41,7 @@ class CommentController extends AbstractController
     #[IsGranted('COMMENT_DELETE', subject: 'comment')]
     public function delete(Request $request, Comment $comment, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete-comment-' . $comment->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete-comment-'.$comment->getId(), $request->request->get('_token'))) {
             $this->commentService->delete($comment);
         }
 

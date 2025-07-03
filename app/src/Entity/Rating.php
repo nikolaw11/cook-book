@@ -57,8 +57,6 @@ class Rating
      * Setter for id.
      *
      * @param int $id ID
-     *
-     * @return static
      */
     public function setId(int $id): static
     {
@@ -69,8 +67,6 @@ class Rating
 
     /**
      * Getter for recipe.
-     *
-     * @return Recipe|null
      */
     public function getRecipe(): ?Recipe
     {
@@ -81,8 +77,6 @@ class Rating
      * Setter for recipe.
      *
      * @param Recipe|null $recipe Recipe
-     *
-     * @return static
      */
     public function setRecipe(?Recipe $recipe): static
     {
@@ -93,8 +87,6 @@ class Rating
 
     /**
      * Getter for user.
-     *
-     * @return User|null
      */
     public function getUser(): ?User
     {
