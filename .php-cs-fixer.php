@@ -9,6 +9,9 @@ $finder = Finder::create()
 
 return (new Config())
     ->setRules([
+        '@Symfony' => true,
+        '@PSR1' => true,
+        '@PSR2' => true,
         '@PSR12' => true,
         'no_superfluous_phpdoc_tags' => true,
         'phpdoc_trim' => true,
